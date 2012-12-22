@@ -13,7 +13,7 @@ $ pip install rdflib
 ## How to use
 
 ```python
-from senticnet import Senticnet
+from senticnet.senticnet import Senticnet
 
 sn = Senticnet()
 polarity = sn.get_polarity("Friday night")
