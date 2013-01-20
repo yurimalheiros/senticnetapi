@@ -16,5 +16,7 @@ $ pip install rdflib
 from senticnet.senticnet import Senticnet
 
 sn = Senticnet()
-polarity = sn.get_polarity("Friday night")
+polarity = sn.polarity('love')
+semantics = sn.semantics('love')
+sentics = sn.sentics('love')
 ```
