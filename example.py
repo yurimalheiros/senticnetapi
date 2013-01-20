@@ -1,5 +1,6 @@
 from senticnet.senticnet import Senticnet
 
 sn = Senticnet()
-polarity = sn.get_polarity("Friday night")
-print polarity
+print "polarity:", sn.polarity('love')
+print "semantics:", " ".join(sn.semantics('love'))
+print "\n".join([key + ": " + str(value) for key, value in sn.sentics('love').items()])
