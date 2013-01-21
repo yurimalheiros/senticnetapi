@@ -22,6 +22,7 @@ $ python setup.py install
 from senticnet.senticnet import Senticnet
 
 sn = Senticnet()
+concept_info = sn.concept('love')
 polarity = sn.polarity('love')
 semantics = sn.semantics('love')
 sentics = sn.sentics('love')
