@@ -1,13 +1,11 @@
 # Senticnet API
 
-Ultra simple API to use Senticnet without be bothered by RDF stuff.
+Ultra simple API to use Senticnet 2 without be bothered by RDF stuff.
 
-## Dependencies
-
-You need to install the rdflib:
+## Install
 
 ```
-$ pip install rdflib
+$ pip install senticnet
 ```
 
 ## How to use
