@@ -7,7 +7,7 @@ packages = ['senticnet']
 requires = []
 
 setup(name='senticnet',
-      version='0.2',
+      version='0.3.2',
       description='Access Senticnet API using Python',
       long_description=open('README.md').read(),
       author=u'Yuri Malheiros',
