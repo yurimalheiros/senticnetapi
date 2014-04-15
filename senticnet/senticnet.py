@@ -7,7 +7,7 @@ class Senticnet(object):
     """
     def __init__(self):    
         self.concept_base_uri = "http://sentic.net/api/en/concept/"
-        self.senticapi_base_uri = "http://sentic.net/api/"
+        self.senticapi_base_uri = "http://sentic.net/api"
 
     # public methods
 
@@ -46,7 +46,7 @@ class Senticnet(object):
         If you pass a parsed graph, the method do not load the rdf again.
         """
         concept_sentics_uri = self.concept_base_uri+concept+"/sentics"
-        sentics = {"pleasantness" : 0, "attention" : 0, "sensitivity" : 0, "aptitude" : 0}
+        sentics = {"pleasantness": 0, "attention": 0, "sensitivity": 0, "aptitude": 0}
 
         if parsed_graph is None:
             graph = rdflib.Graph()
