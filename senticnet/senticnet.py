@@ -4,7 +4,7 @@ from rdflib.term import URIRef
 
 class Senticnet(object):
     """
-    Ultra simple API to use Senticnet 2 without be bothered by RDF stuff.
+    Simple API to use Senticnet 3 without be bothered by RDF stuff.
     """
     def __init__(self):
         self.concept_base_uri = "http://sentic.net/api/en/concept/"

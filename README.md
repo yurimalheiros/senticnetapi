@@ -2,7 +2,7 @@
 
 [![Image](https://zenodo.org/badge/doi/10.5281/zenodo.9805.png "DOI") ](http://dx.doi.org/10.5281/zenodo.9805 "DOI")
 
-Simple API to use Senticnet 2 (http://sentic.net/) without be bothered by RDF stuff.
+Simple API to use Senticnet 3 (http://sentic.net/) without be bothered by RDF stuff.
 
 ## Install
 
