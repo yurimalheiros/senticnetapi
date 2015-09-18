@@ -1,6 +1,5 @@
 import rdflib
-from rdflib.term import URIRef
-
+import urllib2
 
 class Senticnet(object):
     """
@@ -17,8 +16,9 @@ class Senticnet(object):
         Return all the information about a concept: semantics,
         sentics and polarity.
         """
-        graph = rdflib.Graph()
-        parsed_graph = graph.parse(self.concept_base_uri+concept, format="xml")
+        #graph = rdflib.Graph()
+        #parsed_graph = graph.parse(self.concept_base_uri+concept, format="xml")
+        parsed_graph=None
         result = {}
 
         result["polarity"] = self.polarity(concept, parsed_graph)
@@ -33,14 +33,9 @@ class Senticnet(object):
         If you pass a parsed graph, the method do not load the rdf again.
         """
         concept_semantics_uri = self.concept_base_uri+concept+"/semantics"
-        semantics_predicate_uri = self.senticapi_base_uri+"semantics"
+        _,result=self.output(concept_semantics_uri)
 
-        if parsed_graph is None:
-            g = rdflib.Graph()
-            parsed_graph = g.parse(concept_semantics_uri, format="xml")
-
-        objects = parsed_graph.objects(predicate=URIRef(semantics_predicate_uri))
-        return [self._last_uri_element(o.toPython()) for o in objects]
+        return [str(self._last_uri_element(x)) for x in result]
 
     def sentics(self, concept, parsed_graph=None):
         """
@@ -54,9 +49,13 @@ class Senticnet(object):
         if parsed_graph is None:
             graph = rdflib.Graph()
             parsed_graph = graph.parse(concept_sentics_uri, format="xml")
+        
+        result,_=self.output(concept_sentics_uri)
 
-        for sentic in sentics.keys():
-            sentics[sentic] = parsed_graph.objects(predicate=URIRef(self.senticapi_base_uri+sentic)).next().toPython()
+        sentics["pleasantness"]=result[3]
+        sentics["attention"]= result[0]
+        sentics["sensitivity"]= result[1]
+        sentics["aptitude"]=result[2]
 
         return sentics
 
@@ -66,15 +65,39 @@ class Senticnet(object):
         If you pass a parsed graph, the method do not load the rdf again.
         """
         concept_polarity_uri = self.concept_base_uri+concept+"/polarity"
-        predicate_uri = self.senticapi_base_uri+"polarity"
-
+    
         if parsed_graph is None:
-            graph = rdflib.Graph()
-            parsed_graph = graph.parse(concept_polarity_uri, format="xml")
-
-        return parsed_graph.objects(predicate=URIRef(predicate_uri)).next().toPython()
+            try:
+                graph = rdflib.Graph()
+                parsed_graph = graph.parse(concept_polarity_uri, format="xml")
+                result,_=self.output(concept_polarity_uri)
+                return result[0]
+    
+            except Exception:
+                return 0
 
     # private methods
 
     def _last_uri_element(self, uri):
         return uri.split("/")[-1]
+
+    def output(self,url):
+        """
+        Downloads and returns the output avoiding w3.org error
+        """
+        response = urllib2.urlopen(url)
+        html = response.read()        
+        html=html.replace('w3.org','www.w3.org')        
+                
+        graph = rdflib.Graph()
+        parsed_graph = graph.parse(data=html, format="xml")      
+        
+        result = [];stresult=[]
+         
+        for s, p, o in parsed_graph:
+             if type(o) == rdflib.term.Literal:
+                 result.append(o.toPython()) 
+             else:
+                 stresult.append(o.toPython())
+         
+        return result,stresult
