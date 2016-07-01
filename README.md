@@ -4,11 +4,6 @@
 
 Simple API to use Senticnet 3 (http://sentic.net/) without be bothered by RDF stuff.
 
-## ====== NOTE ======
-
-The official Senticnet RDF is currently experiencing some problem, so this API is not working correctly.
-The creators of Senticnet told me that they will fix the RDF problem soon. However, @tanayz gently coded a workaround to solve this temporary problem, so, if you need to use the Python Senticnet API now, please use this code: https://github.com/tanayz/senticnetapi
-
 
 ## Install
 
