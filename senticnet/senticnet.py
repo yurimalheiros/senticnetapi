@@ -1,7 +1,6 @@
-import rdflib
 import urllib2
+import rdflib
 from rdflib.term import URIRef
-
 
 class Senticnet(object):
     """
