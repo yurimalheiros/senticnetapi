@@ -4,7 +4,7 @@ from rdflib.term import URIRef
 
 class Senticnet(object):
     """
-    Ultra simple API to use Senticnet 2 without be bothered by RDF stuff.
+    Simple API to use Senticnet 3 without be bothered by RDF stuff.
     """
     def __init__(self):
         self.concept_base_uri = "http://sentic.net/api/en/concept/"
@@ -14,7 +14,8 @@ class Senticnet(object):
 
     def concept(self, concept):
         """
-        Return all the information about a concept: semantics, sentics and polarity.
+        Return all the information about a concept: semantics,
+        sentics and polarity.
         """
         graph = rdflib.Graph()
         parsed_graph = graph.parse(self.concept_base_uri+concept, format="xml")
@@ -40,6 +41,7 @@ class Senticnet(object):
 
         objects = parsed_graph.objects(predicate=URIRef(semantics_predicate_uri))
         return [self._last_uri_element(o.toPython()) for o in objects]
+        
     def sentics(self, concept, parsed_graph=None):
         """
         Return sentics of a concept.
