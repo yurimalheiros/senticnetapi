@@ -7,11 +7,11 @@ packages = ['senticnet']
 requires = []
 
 setup(name='senticnet',
-      version='0.4.1',
+      version='0.5.0',
       description='Access Senticnet API using Python',
       long_description=open('README.md').read(),
       author=u'Yuri Malheiros',
-      author_email='contato@yurimalheiros.com',
+      author_email='yuri@dcx.ufpb.br',
       url='https://github.com/yurimalheiros/senticnetapi',
       packages=packages,
       package_data={'': ['LICENSE', 'README.md'], 'senticnet': []},
