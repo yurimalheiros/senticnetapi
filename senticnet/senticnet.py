@@ -18,7 +18,7 @@ class Senticnet(object):
         sentics and polarity.
         """
         graph = rdflib.Graph()
-        parsed_graph = graph.parse(self.concept_base_uri+concept, format="xml")
+        parsed_graph = graph.parse(data=self._fix_rdf(self.concept_base_uri+concept), format="xml")
         result = {}
 
         result["polarity"] = self.polarity(concept, parsed_graph)
