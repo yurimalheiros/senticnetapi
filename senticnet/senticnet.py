@@ -17,7 +17,9 @@ class Senticnet(object):
         """
         result = {}
 
-        result["polarity"] = self.polarity(concept)
+        result["polarity_value"] = self.polarity_value(concept)
+        result["polarity_intense"] = self.polarity_intense(concept)
+        result["moodtags"] = self.moodtags(concept)
         result["sentics"] = self.sentics(concept)
         result["semantics"] = self.semantics(concept)
 
