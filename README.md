@@ -33,6 +33,22 @@ semantics = sn.semantics('love')
 sentics = sn.sentics('love')
 ```
 
+Also, you can use other languages:
+
+```python
+from senticnet.senticnet import Senticnet
+
+sn = Senticnet('pt')
+concept_info = sn.concept('amor')
+polarity_value = sn.polarity_value('amor')
+polarity_intense = sn.polarity_intense('amor')
+moodtags = sn.moodtags('amor')
+semantics = sn.semantics('amor')
+sentics = sn.sentics('amor')
+```
+
+You can find all supported languages here: http://sentic.net/api/
+
 ## About Senticnet
 
 SenticNet is an initiative conceived at the MIT Media Laboratory in 2010 within an industrial Cooperative Awards in Science and Engineering (CASE) research project, funded by the UK Engineering and Physical Sciences Research Council (EPSRC) and born from the collaboration between the University of Stirling, the Media Lab, and Sitekit Labs.
