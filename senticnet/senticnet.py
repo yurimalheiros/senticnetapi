@@ -30,7 +30,7 @@ class Senticnet(object):
         concept = concept.replace(" ", "_")
         concept_info = self.data[concept]
 
-        return concept_info[7:]
+        return concept_info[8:]
 
     def sentics(self, concept):
         """
@@ -46,11 +46,29 @@ class Senticnet(object):
 
         return sentics
 
-    def polarity(self, concept):
+    def polarity_value(self, concept):
         """
-        Return the polarity of a concept.
+        Return the polarity value of a concept.
         """
         concept = concept.replace(" ", "_")
         concept_info = self.data[concept]
 
         return concept_info[6]
+
+    def polarity_intense(self, concept):
+        """
+        Return the polarity intense of a concept.
+        """
+        concept = concept.replace(" ", "_")
+        concept_info = self.data[concept]
+
+        return concept_info[7]
+
+    def moodtags(self, concept):
+        """
+        Return the moodtags of a concept.
+        """
+        concept = concept.replace(" ", "_")
+        concept_info = self.data[concept]
+
+        return concept_info[4:6]

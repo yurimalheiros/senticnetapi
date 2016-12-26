@@ -26,7 +26,9 @@ from senticnet.senticnet import Senticnet
 
 sn = Senticnet()
 concept_info = sn.concept('love')
-polarity = sn.polarity('love')
+polarity_value = sn.polarity_value('love')
+polarity_intense = sn.polarity_intense('love')
+moodtags = sn.moodtags('love')
 semantics = sn.semantics('love')
 sentics = sn.sentics('love')
 ```
@@ -39,4 +41,4 @@ Currently, both the SenticNet knowledge base and the SenticNet framework are bei
 
 Please acknowledge the authors by citing SenticNet 4 in any research work or presentation containing results obtained in whole or in part through the use of the API:
 
-*E. Cambria, S. Poria, R. Bajpai, and B. Schuller. SenticNet 4: A semantic resource for sentiment analysis based on conceptual primitives. In: COLING, Osaka (2016)*
+*E. Cambria, S. Poria, R. Bajpai, and B. Schuller. SenticNet 4: A semantic resource for sentiment analysis based on conceptual primitives. In: COLING, pp. 2666-2677, Osaka (2016)*
