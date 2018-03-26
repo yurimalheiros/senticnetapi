@@ -1,8 +1,9 @@
 import importlib
 
-class Senticnet(object):
+
+class SenticNet(object):
     """
-    Simple API to use Senticnet 4.
+    Simple API to use SenticNet 5.
     """
     def __init__(self, language="en"):
         data_module = importlib.import_module("senticnet.babel.data_" + language)
