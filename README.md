@@ -57,4 +57,4 @@ Currently, both the SenticNet knowledge base and the SenticNet framework are bei
 
 Please acknowledge the authors by citing SenticNet 5 in any research work or presentation containing results obtained in whole or in part through the use of the API:
 
-*E Cambria, S Poria, D Hazarika, K Kwok. SenticNet 5: Discovering conceptual primitives for sentiment analysis by means of context embeddings. In: AAAI (2018)*
+*E Cambria, S Poria, D Hazarika, K Kwok. SenticNet 5: Discovering conceptual primitives for sentiment analysis by means of context embeddings. In: AAAI, pp. 1795-1802 (2018)*
