@@ -1,6 +1,6 @@
 # SenticNet API
 
-[![Image](https://zenodo.org/badge/doi/10.5281/zenodo.9805.png "DOI") ](http://dx.doi.org/10.5281/zenodo.9805 "DOI")
+[![Image](https://zenodo.org/badge/doi/10.5281/zenodo.9805.png "DOI") ](https://doi.org/10.5281/zenodo.9805 "DOI")
 
 Simple API to use SenticNet 5 (http://sentic.net/).
 
