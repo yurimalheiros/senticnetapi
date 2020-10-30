@@ -1,16 +1,15 @@
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
+from setuptools import setup
 
 packages = ['senticnet']
-requires = []
+
+with open("README.md", "r") as fh:
+    long_description = fh.read()
 
 setup(name='senticnet',
       version='1.6',
       description='Access SenticNet data using Python',
-      long_description=open('README.md').read(),
       long_description_content_type='text/markdown',
+      long_description=long_description,
       author=u'Yuri Malheiros',
       author_email='yuri@dcx.ufpb.br',
       url='https://github.com/yurimalheiros/senticnetapi',
@@ -18,7 +17,6 @@ setup(name='senticnet',
       package_data={'': ['LICENSE', 'README.md'], 'senticnet': []},
       package_dir={'senticnet': 'senticnet'},
       include_package_data=True,
-      license=open('LICENSE').read(),
       zip_safe=False,
       install_requires=[],
       classifiers=['Development Status :: 5 - Production/Stable',
