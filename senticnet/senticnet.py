@@ -1,71 +1,41 @@
-import importlib
-
+from senticnet import senticnet6
 
 class SenticNet(object):
     """
-    Simple API to use SenticNet 5.
+    Simple API to use SenticNet.
     """
-    def __init__(self, language="en"):
-        data_module = importlib.import_module("senticnet.babel.data_" + language)
-        self.data = data_module.senticnet
+    def __init__(self):
+        self.data = senticnet6.senticnet
 
     # public methods
 
     def concept(self, concept):
         """
-        Return all the information about a concept: semantics,
-        sentics and polarity.
+        Return all the information about a concept: polarity, sentics, moodtags, and semantics.
         """
         result = {}
 
+        result["polarity_label"] = self.polarity_label(concept)
         result["polarity_value"] = self.polarity_value(concept)
-        result["polarity_intense"] = self.polarity_intense(concept)
-        result["moodtags"] = self.moodtags(concept)
         result["sentics"] = self.sentics(concept)
+        result["moodtags"] = self.moodtags(concept)
         result["semantics"] = self.semantics(concept)
 
         return result
 
-    def semantics(self, concept):
-        """
-        Return the semantics associated with a concept.
-        """
-        concept = concept.replace(" ", "_")
-        concept_info = self.data[concept]
-
-        return concept_info[8:]
-
     def sentics(self, concept):
         """
-        Return sentics of a concept.
+        Return the sentics of a concept.
         """
         concept = concept.replace(" ", "_")
         concept_info = self.data[concept]
 
-        sentics = {"pleasantness": concept_info[0],
-                   "attention": concept_info[1],
-                   "sensitivity": concept_info[2],
-                   "aptitude": concept_info[3]}
+        sentics = {"introspection": concept_info[0],
+                   "temper": concept_info[1],
+                   "attitude": concept_info[2],
+                   "sensitivity": concept_info[3]}
 
         return sentics
-
-    def polarity_value(self, concept):
-        """
-        Return the polarity value of a concept.
-        """
-        concept = concept.replace(" ", "_")
-        concept_info = self.data[concept]
-
-        return concept_info[6]
-
-    def polarity_intense(self, concept):
-        """
-        Return the polarity intense of a concept.
-        """
-        concept = concept.replace(" ", "_")
-        concept_info = self.data[concept]
-
-        return concept_info[7]
 
     def moodtags(self, concept):
         """
@@ -75,3 +45,30 @@ class SenticNet(object):
         concept_info = self.data[concept]
 
         return concept_info[4:6]
+
+    def polarity_label(self, concept):
+        """
+        Return the polarity label of a concept.
+        """
+        concept = concept.replace(" ", "_")
+        concept_info = self.data[concept]
+
+        return concept_info[6]
+
+    def polarity_value(self, concept):
+        """
+        Return the polarity value of a concept.
+        """
+        concept = concept.replace(" ", "_")
+        concept_info = self.data[concept]
+
+        return concept_info[7]
+
+    def semantics(self, concept):
+        """
+        Return the semantics associated with a concept.
+        """
+        concept = concept.replace(" ", "_")
+        concept_info = self.data[concept]
+
+        return concept_info[8:]

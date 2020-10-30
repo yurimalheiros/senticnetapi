@@ -1,0 +1,6 @@
+.DS_Store
+.eggs/
+build/
+dist/
+*.pyc
+*.swp
