@@ -39,12 +39,12 @@ Also, you can use other languages:
 from senticnet.babelsenticnet import BabelSenticNet
 
 bsn = BabelSenticNet('pt')
-concept_info = sn.concept('amor')
-polarity_label = sn.polarity_label('amor')
-polarity_value = sn.polarity_value('amor')
-moodtags = sn.moodtags('amor')
-semantics = sn.semantics('amor')
-sentics = sn.sentics('amor')
+concept_info = bsn.concept('amor')
+polarity_label = bsn.polarity_label('amor')
+polarity_value = bsn.polarity_value('amor')
+moodtags = bsn.moodtags('amor')
+semantics = bsn.semantics('amor')
+sentics = bsn.sentics('amor')
 ```
 
 You can find all supported languages here: http://sentic.net/api/
